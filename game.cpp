@@ -65,6 +65,26 @@ void Game::setNbColumns(int value)
     nbColumns = value;
 }
 
+int Game::getNbPlayers() const
+{
+    return nbPlayers;
+}
+
+void Game::setNbPlayers(int value)
+{
+    nbPlayers = value;
+}
+
+std::vector<char> Game::getPlayerOutput() const
+{
+    return playerOutput;
+}
+
+void Game::setPlayerOutput(const std::vector<char> &value)
+{
+    playerOutput = value;
+}
+
 int Game::findFreeSquareInColumn(int column)
 {
     // If column is full, no need to do operations
@@ -101,12 +121,29 @@ std::vector<std::vector<int>> Game::changeStatusSquare(int column, int line, int
     return this->gameboard;
 }
 
-std::vector<char> Game::getPlayerOutput() const
+void Game::configMultiplayer(const int totalPlayer)
 {
-    return playerOutput;
-}
+    char symbol;
 
-void Game::setPlayerOutput(const std::vector<char> &value)
-{
-    playerOutput = value;
+    playerOutput.clear();
+    playerOutput.push_back(' ');
+
+    for (int i = 0; i < totalPlayer; ++i)
+    {
+        cout << "What is player " << (i + 1) << "'s symbol? ";
+        cin >> symbol;
+        playerOutput.push_back(symbol);
+    }
+
+    cout << endl;
+    cout << "Symbols per player are :" << endl;
+
+    for (int i = 1; i < playerOutput.size(); ++i)
+    {
+        cout << "Player " << i << ": " << playerOutput[i] << endl;
+    }
+
+    cout << endl;
+    cout << "Multiplayer is now ready." << endl;
+    cout << endl;
 }
