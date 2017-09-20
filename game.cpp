@@ -16,6 +16,8 @@ Game::Game(int lines, int columns) : nbColumns(columns), nbLines(lines), gameboa
 
 void Game::printGame() const
 {
+    const vector<char> output = {' ', 'o', '#'};
+
     cout << endl;
 
     for (int i = 0; i < nbColumns; ++i)
@@ -34,16 +36,7 @@ void Game::printGame() const
     {
         for (int columns = 0; columns < nbColumns; ++columns)
         {
-            cout << "| ";
-            if (gameboard[columns][lines] == 0)
-            {
-                cout << " ";
-            }
-            else
-            {
-                cout << (gameboard[columns][lines] == 1 ? "o" : "#");
-            }
-            cout << " ";
+            cout << "| " << output[gameboard[columns][lines] % output.size()] << " ";
         }
         cout << "|" << endl;
         for (int i = 0; i < nbColumns; ++i)
