@@ -9,7 +9,6 @@ Game::Game() : Game (6, 7)
 
 }
 
-Game::Game(int lines, int columns) : nbLines(lines), nbColumns(columns), gameboard(nbLines, vector<int>(nbColumns))
 Game::Game(int lines, int columns) : nbColumns(columns), nbLines(lines), gameboard(columns, vector<int>(lines))
 {
 
@@ -17,27 +16,37 @@ Game::Game(int lines, int columns) : nbColumns(columns), nbLines(lines), gameboa
 
 void Game::printGame() const
 {
-    for (size_t i = 0; i < nbColumns; ++i)
+    cout << endl;
+
+    for (int i = 0; i < nbColumns; ++i)
     {
-        cout << "  " << (i + 1) << " ";
+        cout << "  " << i << " ";
     }
     cout << endl;
 
-    for (size_t i = 0; i < nbColumns; ++i)
+    for (int i = 0; i < nbColumns; ++i)
     {
         cout << "+---";
     }
     cout << "+" << endl;
 
-    for (auto columns : this->gameboard)
+    for (int lines = 0; lines < nbLines; ++lines)
     {
-        for (auto element : columns)
+        for (int columns = 0; columns < nbColumns; ++columns)
         {
-            std::cout << "| " << element << " ";
+            cout << "| ";
+            if (gameboard[columns][lines] == 0)
+            {
+                cout << " ";
+            }
+            else
+            {
+                cout << (gameboard[columns][lines] == 1 ? "o" : "#");
+            }
+            cout << " ";
         }
-        std::cout << "|" << std::endl;
-
-        for (size_t j = 0; j < nbColumns; ++j)
+        cout << "|" << endl;
+        for (int i = 0; i < nbColumns; ++i)
         {
             cout << "+---";
         }
