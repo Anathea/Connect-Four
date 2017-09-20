@@ -10,6 +10,7 @@ Game::Game() : Game (6, 7)
 }
 
 Game::Game(int lines, int columns) : nbLines(lines), nbColumns(columns), gameboard(nbLines, vector<int>(nbColumns))
+Game::Game(int lines, int columns) : nbColumns(columns), nbLines(lines), gameboard(columns, vector<int>(lines))
 {
 
 }
