@@ -92,8 +92,13 @@ int Game::findFreeSquareInColumn(int column)
     return -1;
 }
 
-std::vector<std::vector<int>> Game::changeStatusSquare(int line, int column, int joueur)
+std::vector<std::vector<int>> Game::changeStatusSquare(int column, int line, int player)
 {
-    this->gameboard[line][column] = joueur;
+    if (line >= 0)
+    {
+        this->gameboard[column][line] = player;
+        printGame();
+    }
+
     return this->gameboard;
 }
