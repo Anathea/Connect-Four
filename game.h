@@ -3,8 +3,6 @@
 
 #include <iostream>
 #include <vector>
-#include <string>
-
 
 class Game
 {
@@ -23,9 +21,13 @@ public:
     int findFreeSquareInColumn(int column);
     std::vector<std::vector<int>> changeStatusSquare(int column, int line, int player);
 
+    std::vector<char> getPlayerOutput() const;
+    void setPlayerOutput(const std::vector<char> &value);
+
 private:
     int nbLines;
     int nbColumns;
+    std::vector<char> playerOutput = {' ', 'o', '#'};
 
     std::vector<std::vector<int>> gameboard;
 };

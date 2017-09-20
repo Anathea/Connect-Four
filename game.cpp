@@ -16,8 +16,6 @@ Game::Game(int lines, int columns) : nbColumns(columns), nbLines(lines), gameboa
 
 void Game::printGame() const
 {
-    const vector<char> output = {' ', 'o', '#'};
-
     cout << endl;
 
     for (int i = 0; i < nbColumns; ++i)
@@ -36,7 +34,7 @@ void Game::printGame() const
     {
         for (int columns = 0; columns < nbColumns; ++columns)
         {
-            cout << "| " << output[gameboard[columns][lines] % output.size()] << " ";
+            cout << "| " << playerOutput[gameboard[columns][lines] % playerOutput.size()] << " ";
         }
         cout << "|" << endl;
         for (int i = 0; i < nbColumns; ++i)
@@ -101,4 +99,14 @@ std::vector<std::vector<int>> Game::changeStatusSquare(int column, int line, int
     }
 
     return this->gameboard;
+}
+
+std::vector<char> Game::getPlayerOutput() const
+{
+    return playerOutput;
+}
+
+void Game::setPlayerOutput(const std::vector<char> &value)
+{
+    playerOutput = value;
 }
