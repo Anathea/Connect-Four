@@ -74,25 +74,29 @@ void Game::setNbColumns(int value)
     nbColumns = value;
 }
 
-std::vector<std::vector<int>> Game::chooseColumn(int column, int joueur)
+int Game::findFreeSquareInColumn(int column)
 {
-    bool isFull = true;
-
-    for (size_t i = this->gameboard[column].size(); i < 0; --i)
+    // If column is full, no need to do operations
+    if (this->gameboard[column][0] != 0)
     {
-        if (this->gameboard[column][i] == 0)
+        cout << endl;
+        cout << "This column is full, you can't drop your coin in it." << endl;
+        cout << endl;
+
+        return -1;
+    }
+
+    int line = nbLines - 1;
+    while (line >= 0)
+    {
+        if (this->gameboard[column][line] == 0)
         {
-            isFull = false;
-            this->gameboard = changeStatusSquare((int)i, column, joueur);
+            return line;
         }
+        --line;
     }
 
-    if (isFull)
-    {
-        cout << "This column is full, you can't drop your piece in it." << endl;
-    }
-
-    return this->gameboard;
+    return -1;
 }
 
 std::vector<std::vector<int>> Game::changeStatusSquare(int line, int column, int joueur)

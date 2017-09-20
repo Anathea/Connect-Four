@@ -20,8 +20,8 @@ public:
     int getNbColumns() const;
     void setNbColumns(int value);
 
-    std::vector<std::vector<int>> chooseColumn(int column, int joueur);
     std::vector<std::vector<int>> changeStatusSquare(int line, int column, int joueur);
+    int findFreeSquareInColumn(int column);
 
 private:
     int nbLines;
