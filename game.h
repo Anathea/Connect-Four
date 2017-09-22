@@ -16,8 +16,6 @@ public:
     int getNbColumns() const;
     void setNbColumns(int value);
 
-    std::vector<std::vector<int>> changeStatusSquare(int column, int line, int player);
-
     int getNbPlayers() const;
     void setNbPlayers(int value);
 
@@ -31,6 +29,8 @@ public:
     void menu(int action);
 
     int findFreeSquareInColumn(const int column);
+    std::vector<std::vector<int>> changeSquareStatus(const int column, const int line, const int player);
+
     void configMultiplayer(const int totalPlayer);
 
 private:

@@ -109,7 +109,7 @@ void Game::menu(int action)
 {
 }
 
-int Game::findFreeSquareInColumn(int column)
+int Game::findFreeSquareInColumn(const int column)
 {
     // If column is full, no need to do operations
     if (this->gameboard[column][0] != 0)
@@ -134,7 +134,7 @@ int Game::findFreeSquareInColumn(int column)
     return -1;
 }
 
-std::vector<std::vector<int>> Game::changeStatusSquare(int column, int line, int player)
+std::vector<std::vector<int>> Game::changeSquareStatus(const int column, const int line, const int player)
 {
     if (line >= 0)
     {
