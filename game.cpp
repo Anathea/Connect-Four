@@ -9,7 +9,6 @@ Game::Game() : Game (6, 7)
 
 }
 
-Game::Game(int lines, int columns) : nbColumns(columns), nbLines(lines), gameboard(columns, vector<int>(lines))
 Game::Game(int lines, int columns) : nbColumns(columns), nbLines(lines), nbPlayers(2), gameboard(columns, vector<int>(lines))
 {
     playerOutput = {' ', 'o', '#'};
@@ -86,44 +85,28 @@ void Game::printGame() const
     }
 }
 
-int Game::getNbLines() const
+void Game::header() const
 {
-    return nbLines;
+    cout << " #####                                              #      " << endl;
+    cout << "#     #  ####  #    # #    # ######  ####  #####    #    # " << endl;
+    cout << "#       #    # ##   # ##   # #      #    #   #      #    # " << endl;
+    cout << "#       #    # # #  # # #  # #####  #        #      #    # " << endl;
+    cout << "#       #    # #  # # #  # # #      #        #      #######" << endl;
+    cout << "#     # #    # #   ## #   ## #      #    #   #           # " << endl;
+    cout << " #####   ####  #    # #    # ######  ####    #           # " << endl;
+    cout << endl;
+    cout << "Hello and welcome to Connect 4!" << endl;
+    cout << endl;
 }
 
-void Game::setNbLines(int value)
 {
-    nbLines = value;
+    int action;
+
+
 }
 
-int Game::getNbColumns() const
+void Game::menu(int action)
 {
-    return nbColumns;
-}
-
-void Game::setNbColumns(int value)
-{
-    nbColumns = value;
-}
-
-int Game::getNbPlayers() const
-{
-    return nbPlayers;
-}
-
-void Game::setNbPlayers(int value)
-{
-    nbPlayers = value;
-}
-
-std::vector<char> Game::getPlayerOutput() const
-{
-    return playerOutput;
-}
-
-void Game::setPlayerOutput(const std::vector<char> &value)
-{
-    playerOutput = value;
 }
 
 int Game::findFreeSquareInColumn(int column)
