@@ -15,6 +15,44 @@ Game::Game(int lines, int columns) : nbColumns(columns), nbLines(lines), nbPlaye
     playerOutput = {' ', 'o', '#'};
 }
 
+int Game::getNbLines() const
+{
+    return nbLines;
+}
+
+void Game::setNbLines(int value)
+{
+    nbLines = value;
+}
+
+int Game::getNbColumns() const
+{
+    return nbColumns;
+}
+
+void Game::setNbColumns(int value)
+{
+    nbColumns = value;
+}
+
+int Game::getNbPlayers() const
+{
+    return nbPlayers;
+}
+
+void Game::setNbPlayers(int value)
+{
+    nbPlayers = value;
+}
+
+std::vector<char> Game::getPlayerOutput() const
+{
+    return playerOutput;
+}
+
+void Game::setPlayerOutput(const std::vector<char> &value)
+{
+    playerOutput = value;
 }
 
 void Game::printGame() const
