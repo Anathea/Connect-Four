@@ -99,14 +99,27 @@ void Game::header() const
     cout << endl;
 }
 
+int Game::printMenu() const
 {
     int action;
 
+    cout << endl;
+    cout << "Home menu" << endl;
+    cout << endl;
+    cout << "1 - Play! (Classic 2 players)" << endl;
+    cout << "2 - Configure multiplayer" << endl;
+    cout << "3 - Configure multiplayer" << endl;
+    cout << "4 - How to play" << endl;
+    cout << endl;
+    cout << "What do you want to do? ";
+    cin >> action;
 
+    return action;
 }
 
 void Game::menu(int action)
 {
+    // TODO : well, basically everything...
 }
 
 int Game::findFreeSquareInColumn(const int column)

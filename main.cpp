@@ -21,6 +21,7 @@ int main()
      */
     Game g;
     g.header();
+    g.printMenu();
 //    g.changeSquareStatus(3, g.findFreeSquareInColumn(3), 2);
 //    g.changeSquareStatus(3, g.findFreeSquareInColumn(3), 1);
 //    g.changeSquareStatus(3, g.findFreeSquareInColumn(3), 1);
