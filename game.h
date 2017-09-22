@@ -34,6 +34,7 @@ private:
     int nbColumns;
     int nbPlayers;
     std::vector<char> playerOutput = {' ', 'o', '#'};
+    std::vector<char> playerOutput;
 
     std::vector<std::vector<int>> gameboard;
 };
